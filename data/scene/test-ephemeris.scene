@@ -29,7 +29,8 @@ return {
     Modules = {
         "test/ephemeris/earth",
         "test/ephemeris/kepler",
-        "test/ephemeris/spice"
+        "test/ephemeris/spice",
+        "test/ephemeris/tle"
     }
 }
 
