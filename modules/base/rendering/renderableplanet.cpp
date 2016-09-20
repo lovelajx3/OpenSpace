@@ -616,7 +616,20 @@ void RenderablePlanet::render(const RenderData& data) {
             transform[i][j] = static_cast<float>(_stateMatrix[i][j]);
         }
     }
-    transform = transform * rot * roty * rotProp;  
+    transform = transform * rot * roty * rotProp;
+    
+    //glm::mat4 modelview = data.camera.viewMatrix()*data.camera.modelMatrix();
+    //glm::vec3 camSpaceEye = (-(modelview*data.position.vec4())).xyz;
+
+    
+    double  lt;
+    glm::dvec3 p(0.0);
+    try {
+        p =
+            SpiceManager::ref().targetPosition("SUN", _target, "GALACTIC", {}, _time, lt);
+    }
+    catch (const SpiceManager::SpiceException& e) {}
+    psc sun_pos = PowerScaledCoordinate::CreatePowerScaledCoordinate(p.x, p.y, p.z);
 
     _programObject->setUniform("transparency", _alpha);
     _programObject->setUniform("ViewProjection", data.camera.viewProjectionMatrix());

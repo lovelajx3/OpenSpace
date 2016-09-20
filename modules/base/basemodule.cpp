@@ -48,8 +48,10 @@
 #include <modules/base/rendering/screenspaceimage.h>
 #include <modules/base/rendering/screenspaceframebuffer.h>
 
+#include <modules/base/ephemeris/keplerephemeris.h>
 #include <modules/base/ephemeris/staticephemeris.h>
 #include <modules/base/ephemeris/spiceephemeris.h>
+#include <modules/base/ephemeris/tleephemeris.h>
 
 #include <modules/base/rotation/staticrotation.h>
 #include <modules/base/rotation/spicerotation.h>
@@ -124,6 +126,8 @@ void BaseModule::internalInitialize() {
     ghoul_assert(fScale, "Scale factory was not created");
 
     fScale->registerClass <StaticScale> ("StaticScale");
+    fEphemeris->registerClass<KeplerEphemeris>("Kepler");
+    fEphemeris->registerClass<TLEEphemeris>("TLE");
 
     auto fPlanetGeometry = FactoryManager::ref().factory<planetgeometry::PlanetGeometry>();
     ghoul_assert(fPlanetGeometry, "Planet geometry factory was not created");

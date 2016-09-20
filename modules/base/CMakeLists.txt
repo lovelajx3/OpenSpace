@@ -47,6 +47,8 @@ set(HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/rotation/spicerotation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/rotation/staticrotation.h
     ${CMAKE_CURRENT_SOURCE_DIR}/scale/staticscale.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/ephemeris/keplerephemeris.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/ephemeris/tleephemeris.h
 )
 source_group("Header Files" FILES ${HEADER_FILES})
 
@@ -73,6 +75,8 @@ set(SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/rotation/spicerotation.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/rotation/staticrotation.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/scale/staticscale.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ephemeris/keplerephemeris.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ephemeris/tleephemeris.cpp
 )
 source_group("Source Files" FILES ${SOURCE_FILES})
 
