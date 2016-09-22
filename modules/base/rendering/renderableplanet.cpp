@@ -683,7 +683,6 @@ void RenderablePlanet::render(const RenderData& data) {
 
     // TODO: Move Calculations to VIEW SPACE (precision problems avoidance...)
 
-    double lt;
     // Shadow calculations..
     if (!_shadowConfArray.empty()) {
         std::vector<ShadowRenderingStruct> shadowDataArray;
