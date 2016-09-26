@@ -39,15 +39,27 @@
 #define HAVE_FCNTL_H 1
 
 /* Define if you have the <unistd.h> header file.  */
-#undef HAVE_UNISTD_H
+#ifdef __APPLE__
+ #define HAVE_UNISTD_H
+#else
+ #undef HAVE_UNISTD_H
+#endif
 
 /* Define if you have the <stdint.h> header file.  */
-#undef HAVE_STDINT_H
+#ifdef __APPLE__
+ #define HAVE_STDINT_H
+#else
+ #undef HAVE_STDINT_H
+#endif
 
 /* Define to 1 if you have the <sys/types.h> header file. */
 #define HAVE_SYS_TYPES_H 1
 
-#undef HAVE_LIBDL 
+#ifdef __APPLE__
+ #define HAVE_LIBDL 
+#else
+ #undef HAVE_LIBDL 
+#endif
 
 /* Define to 1 if you have the <locale.h> header file. */
 #define HAVE_LOCALE_H 1
@@ -59,10 +71,18 @@
 #define HAVE_SEARCH_H 1
 
 /* Define to 1 if you have the <direct.h> header file. */
-#define HAVE_DIRECT_H
+#ifdef __APPLE__
+ #undef HAVE_DIRECT_H
+#else
+ #define HAVE_DIRECT_H
+#endif
 
 /* Define to 1 if you have the `localtime_r' function. */
-#undef HAVE_LOCALTIME_R
+#ifdef __APPLE__
+ #define HAVE_LOCALTIME_R
+#else
+ #undef HAVE_LOCALTIME_R
+#endif
 
 #undef HAVE_DLFCN_H
 #undef HAVE_DBMALLOC_H
