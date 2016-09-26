@@ -35,7 +35,7 @@ class KeplerEphemeris : public Ephemeris {
 public:
     KeplerEphemeris(const ghoul::Dictionary& dictionary);
     virtual ~KeplerEphemeris();
-    virtual const psc& position() const override;
+    virtual glm::dvec3 position() const override;
     virtual void update(const UpdateData& data) override;
 
 protected:

@@ -66,8 +66,8 @@ KeplerEphemeris::KeplerEphemeris(const ghoul::Dictionary& dictionary) {
 
 KeplerEphemeris::~KeplerEphemeris() {}
 
-const psc& KeplerEphemeris::position() const {
-    return _pscPosition;
+glm::dvec3 KeplerEphemeris::position() const {
+    return _position;
 }
 
 void KeplerEphemeris::update(const UpdateData& data) {
