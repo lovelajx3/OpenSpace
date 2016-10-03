@@ -29,6 +29,7 @@
 #include <ghoul/logging/logmanager.h>
 #include <ghoul/misc/assert.h>
 #include <ghoul/opengl/ghoul_gl.h>
+#include <thread>
 
 #include <sgct.h>
 
@@ -257,12 +258,7 @@ volatile bool busyWaitDecode = false;
 void mainPostSyncPreDrawFunc() {
     if (OsEng.useBusyWaitForDecode() && !sgct::Engine::instance()->isMaster()) {
         while (minilog.str().size() && minilog.str().back() != DECODE.end) {
-#ifdef __APPLE__
-            struct timespec tenMicrosec = {0, 10000};
-            nanosleep(&tenMicrosec, nullptr);
-#else //__APPLE__
             std::this_thread::sleep_for(std::chrono::microseconds(10));
-#endif
         }
     }
     LOG_BEGIN(POST_SYNC);
